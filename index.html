@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 5px;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Fira Code', monospace;
+
+    }
+
+    body {
+      background: #444;
+      color: #fff;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px 0;
+    }
+
+    h2 {
+      color: orange;
+      margin: 0 10px;
+    }
+
+    h3 {
+      border-top: 1px solid rgba(0, 0, 0, .3);
+      margin: 0 10px;
+      color: black
+    }
+
+    .div {
+      margin-top: 20px;
+      border: solid 3px orangered;
+      padding: 10px;
+    }
+
+    .div div {
+      margin-top: 20px;
+    }
+  </style>especifica
+</head>
+
+<body>
+  <div class="div">
+    <h1>// Nullish coalescing operator (??) SEMELHANTE AO ((||) = 'OU')</h1>
+    <div>
+      <h2>const foo = null ?? "default string";</h2>
+      <h3>// document.body.innerText = foo;</h3>
+      <h3>// expected output: "default string"</h3>
+    </div>
+    <div>
+      <h2>const baz = 0 ?? 42;</h2>
+      <h3>// document.body.innerText = baz;</h3>
+      <h3>// expected output: 0</h3>
+    </div>
+  </div>
+
+  <div class="div">
+    <h1>// Desestruturação</h1>
+    <div>
+      <h2>let a, b, rest;</h2>
+      <h2>[a, b] = [1, 2];</h2>
+      <h3>console.log(a); // 1</h3>
+      <h3>console.log(b); // 2</h3>
+    </div>
+    <div>
+      <h2>[a, b, ...rest] = [1, 2, 3, 4, 5];</h2>
+      <h3>console.log(a); // 1</h3>
+      <h3>console.log(b); // 2</h3>
+      <h3>console.log(rest); // [3, 4, 5]</h3>
+    </div>
+    <div>
+      <h2>({ a, b } = { a: 1, b: 2 });</h2>
+      <h3>console.log(a); // 1</h3>
+      <h3>console.log(b); // 2</h3>
+    </div>
+    <div>
+      <h2>// ES2016 - não implementado em Firefox 47a01</h2>
+      <h2>({ a, b, ...rest } = { a: 1, b: 2, c: 3, d: 4 });</h2>
+    </div>
+  </div>
+
+  <div class="div">
+    <h1>// Rest operation</h1>
+    <div>
+      <h2>function sum(...theArgs) { <br>
+        let total = 0; <br>
+        for (const arg of theArgs) { <br>
+        total += arg; <br>
+        } <br>
+        return total; <br>
+        }</h2>
+    </div>
+    <div>
+      <h3>console.log(sum(1, 2, 3));</h3>
+      <h3>// expected output: 6</h3>
+    </div>
+    <div>
+      <h3>console.log(sum(1, 2, 3, 4));</h3>
+      <h3>// expected output: 10</h3>
+    </div>
+  </div>
+
+  <div class="div">
+    <h1>// Optional chaining (?.)</h1>
+    <div>
+      <h2>const adventurer = {<br>
+        name: "Alice",<br>
+        cat: {<br>
+        name: "Dinah",<br>
+        },<br>
+        };<br></h2>
+    </div>
+    <div>
+      <h2>const dogName = adventurer.dog?.name;</h2>
+      <h3>console.log(dogName);</h3>
+      <h3>// expected output: undefined</h3>
+    </div>
+    <div>
+      <h2>console.log(adventurer.someNonExistentMethod?.());</h2>
+      <h3>// expected output: undefined</h3>
+    </div>
+    <div>
+      <h3>const test = {<br>
+        nome: "nome",<br>
+        idade: 29,<br>
+        t: {<br>
+        te: {<br>
+        tee: "idade",<br>
+        tee2: "idade2",<br>
+        },<br>
+        te2: function showTheT() {<br>
+        return "ok";<br>
+        },<br>
+        },<br>
+        };<br></h3>
+    </div>
+    <div>
+      <h2>Optional chaining (?.)</h2>
+      <h2>document.body.innerText = test ? (t ? te : "deu") : "não informado";</h2>
+      <h2>document.body.innerText = test.t?.te?.tee ?? "não informado";</h2>
+      <h2>document.body.innerText = test.t?.showTheT?.() ?? "não informado";</h2>
+    </div>
+  </div>
+
+  <div class="div">
+    <h1>//Métodos de array</h1>
+    <h2>//for, foreEach, map, filter, every, some, find, findIndex, reduce</h2>
+    <h3>const array = [1, 2, 3, 4, 5];</h3>
+
+    <div>
+      <h2>for ------</h2>
+      <h3>for (let i of array) { <br>
+        document.body.innerText += i;<br>
+        }<br></h3>
+    </div>
+    <div>
+      <h2>forEach ------</h2>
+      <h3>array.forEach((item) => {<br>
+        document.body.innerText += item;<br>
+        });<br></h3>
+    </div>
+    <div>
+      <h2>alternativo map com forEach</h2>
+      <h3>const newArray = [];<br>
+        array.forEach(item)=>{<br>
+        newArray.push(item * 2)<br>
+        }<br></h3>
+    </div>
+    <div>
+      <h2>map ------ sempre terá o mesmo tamanho do array de origem,
+        só será utilizado "map" para transformar array de origem em outra informação a partir dele mesmo.</h2>
+      <h3>const newArray = array.map((item) => {<br>
+        return item * 2;<br>
+        const newArray = array.map((item) => {<br>
+        if(item % 2 === 0 ){<br>
+        return item * 10<br>
+        }<br>
+        return item;<br>
+        });<br></h3>
+    </div>
+    <div>
+      <h2>filter ------ filtra uma array conforme sua função especifica</h2>
+      <h3>const newArray = array.filter((item) => item % 2 === 0);</h3>
+    </div>
+    <div>
+      <h2>every ------ retorna true ou false = true se todos os item forem verdadeiros = false se pelo menos um for
+        falso</h2>
+      <h3>const newArray = array.every((item) => typeof item === "number");</h3>
+      <h3>const newArray = array.every((item) => {<br>
+        return typeof item === "number";<br>
+        });<br></h3>
+    </div>
+    <div>
+      <h2>some ------ retorna true ou false = false se pelo menos os item forem verdadeiros = true se todos for falso
+      </h2>
+      <h3>const newArray = array.some((item) => {<br>
+        return typeof item !== "number";<br>
+        });<br></h3>
+    </div>
+    <div>
+      <h2>find ------ mostra o primeiro item com satisfaz as/a condições caso contrario o valor sera "undefoned"</h2>
+      <h3>const newArray = array.find((item) => item % 2 === 0);</h3>
+    </div>
+    <div>
+      <h2>findIndex ------ mostra o índice do primeiro item com satisfaz as/a condições caso contrario o valor sera
+        "undefoned"</h2>
+      <h3>const newArray = array.findIndex((item) => item % 2 === 0);</h3>
+    </div>
+    <div>
+      <h2>reduce ------ reduce é utilizado qua se deseja criar algo novo com o array</h2>
+      <h3>const newArray = array.reduce((accumulator,item) =>{<br>
+        document.body.innerText += accumulator + ',' + item + '---';<br>
+        return accumulator + item; <br>
+        },0); segundo valor pode ser {},[]<br>
+        O VALOR FINAL ESTÁ DENTRO DO newArray<br></h3>
+      <h2>JUNTAR METODOS ------ <br>
+        const newArray = array<br>
+        .filter((item) => item % 2 === 0)<br>
+        .map((item) => item * 10);<br></h2>
+    </div>
+  </div>
+  <div class="div">
+    <h1>// Templates Literals</h1>
+    <div>
+      <h2>const nome = "Maycon";</h2>
+      <h3>// const bemVindo = `Bem vindo ${nome}`;</h3>
+      <h3>// const bemVindo = `Bem vindo ${nome ? nome: 'Visitante' }`;</h3>
+      <h3>const bemVindo = `Bem vindo ${nome ?? "Visitante"}`;</h3>
+    </div>
+  </div>
+
+  <div class="div">
+    <h1>// Promises</h1>
+    <h2>.then / .catch</h2>
+    <h3>const soma = (a, b) => {<br>
+      return new Promise((resolve, reject) => {<br>
+      setTimeout(() => {<br>
+      // resolve(a + b);<br>
+      reject(a + b);<br>
+      }, 2000);<br>
+      });<br>
+      };<br>
+      soma(1, 2)<br>
+      .then((somaNumeros) => {<br>
+      document.body.innerText = somaNumeros;<br>
+      })<br>
+      .catch((err) => {<br>
+      console.log(err);<br>
+      });<br>
+    </h3><br>
+    <h2>fetch("https://api.github.com/users/diego3g")<br>
+      .then((response) => {<br>
+      return response.json();<br>
+      })<br>
+      .then((body) => {<br>
+      console.log(body);<br>
+      })<br>
+      // .then((response) => {<br>
+      // response.text().then((body) => {<br>
+      // console.log(body);<br>
+      // });<br>
+      // })<br>
+      .catch((err) => {<br>
+      console.log(err);<br>
+      })<br>
+      .finally(() => {<br>
+      console.log("deu certo");<br>
+      });<br></h2><br>
+    <h2>async function buscaDados() {<br>
+      try {<br>
+      const response = await fetch("https://api.github.com/users/diego3g");<br>
+      const body = await response.json();<br>
+      return body.name;<br>
+      } catch (err) {<br>
+      console.log(err);<br>
+      } finally {<br>
+      console.log("deu certo");<br>
+      }<br>
+      }<br>
+      buscaDados().then((name) => {<br>
+      console.log(name);<br>
+      });<br></h2>
+  </div>
+  <div class="div">// document.body.innerText = JSON.stringify(soma());</div>
+
+  <!-- <script src="./script.js"></script> -->
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
